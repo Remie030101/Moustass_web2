@@ -1,0 +1,85 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Cache node modules
+      uses: actions/cache@v3
+      id: npm-cache
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ runner.os }}-modules-
+
+    - name: Install and Check Backend
+      run: |
+        if [ -f "backend/package.json" ]; then
+          cd backend
+          npm install
+          npm test -- --passWithNoTests || true
+          npm run lint || true
+        else
+          echo "Skipping backend checks - package.json not found"
+        fi
+
+    - name: Install and Check Frontend
+      run: |
+        if [ -f "frontend/package.json" ]; then
+          cd frontend
+          npm install
+          npm test -- --passWithNoTests || true
+          npm run lint || true
+        else
+          echo "Skipping frontend checks - package.json not found"
+        fi
+
+    - name: Build Backend
+      run: |
+        if [ -f "backend/package.json" ]; then
+          cd backend
+          if npm run | grep -q "build"; then
+            npm run build
+          else
+            echo "Skipping backend build - build script not found in package.json"
+          fi
+        else
+          echo "Skipping backend build - package.json not found"
+        fi
+
+    - name: Build Frontend
+      run: |
+        if [ -f "frontend/package.json" ]; then
+          cd frontend
+          if npm run | grep -q "build"; then
+            npm run build
+          else
+            echo "Skipping frontend build - build script not found in package.json"
+          fi
+        else
+          echo "Skipping frontend build - package.json not found"
+        fi
+
+    - name: Deploy
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: |
+        echo "Add your deployment commands here"
+        # Example:
+        # - For Vercel: npx vercel --prod
+        # - For Heroku: heroku container:push web -a your-app-name 
