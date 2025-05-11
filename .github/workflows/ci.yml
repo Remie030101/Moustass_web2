@@ -28,58 +28,45 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-modules-
 
-    - name: Install and Check Backend
+    - name: Install Backend Dependencies
       run: |
-        if [ -f "backend/package.json" ]; then
-          cd backend
-          npm install
-          npm test -- --passWithNoTests || true
-          npm run lint || true
-        else
-          echo "Skipping backend checks - package.json not found"
-        fi
+        cd backend
+        npm install
 
-    - name: Install and Check Frontend
+    - name: Run Backend Tests
       run: |
-        if [ -f "frontend/package.json" ]; then
-          cd frontend
-          npm install
-          npm test -- --passWithNoTests || true
-          npm run lint || true
-        else
-          echo "Skipping frontend checks - package.json not found"
-        fi
+        cd backend
+        npm test -- --passWithNoTests || true
 
-    - name: Build Backend
+    - name: Build Docker Image
       run: |
-        if [ -f "backend/package.json" ]; then
-          cd backend
-          if npm run | grep -q "build"; then
-            npm run build
-          else
-            echo "Skipping backend build - build script not found in package.json"
-          fi
-        else
-          echo "Skipping backend build - package.json not found"
-        fi
+        docker build -t web-project .
 
-    - name: Build Frontend
+    - name: Test Docker Container
       run: |
-        if [ -f "frontend/package.json" ]; then
-          cd frontend
-          if npm run | grep -q "build"; then
-            npm run build
-          else
-            echo "Skipping frontend build - build script not found in package.json"
-          fi
-        else
-          echo "Skipping frontend build - package.json not found"
-        fi
+        docker run -d -p 3000:3000 --name test-container web-project
+        sleep 10
+        curl -f http://localhost:3000 || exit 1
+        docker stop test-container
+        docker rm test-container
 
-    - name: Deploy
+    - name: Login to Docker Hub
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Push Docker Image
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      run: |
+        docker tag web-project ${{ secrets.DOCKERHUB_USERNAME }}/web-project:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/web-project:latest
+
+    - name: Deploy to Production
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: |
         echo "Add your deployment commands here"
-        # Example:
-        # - For Vercel: npx vercel --prod
-        # - For Heroku: heroku container:push web -a your-app-name 
+        # Example deployment commands:
+        # - For a VPS: ssh user@your-server "docker pull ${{ secrets.DOCKERHUB_USERNAME }}/web-project:latest && docker-compose up -d"
+        # - For Heroku: heroku container:push web -a your-app-name
