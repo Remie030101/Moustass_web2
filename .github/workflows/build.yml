@@ -8,7 +8,7 @@ on:
 jobs:
   sonarqube:
     name: SonarQube
-    runs-on: macos-latest
+    runs-on: macos-latests
     steps:
       - uses: actions/checkout@v4
         with:
@@ -22,4 +22,4 @@ jobs:
             -Dsonar.organization=remie030101
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: https://sonarcloud.io
+          SONAR_HOST_URL: https://sonarcloud.io     #test
