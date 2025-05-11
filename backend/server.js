@@ -20,8 +20,16 @@ app.use('/api/audio', audioRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/subscriptions', subscriptionRoutes);
 
-// Dossier pour les fichiers uploadés
+// Serve static files from uploads directory
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
+// Serve static files from frontend directory
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Serve index.html for the root route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
 
 // Gestion des erreurs
 app.use((err, req, res, next) => {
@@ -33,3 +41,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur le port ${PORT}`);
 }); 
+
