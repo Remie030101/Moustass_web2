@@ -18,7 +18,7 @@ jobs:
         with:
           projectBaseDir: .
           args: >
-            -Dsonar.projectKey=Remie030101_Moustass_Web
+            -Dsonar.projectKey=Remie030101_Moustass_web2
             -Dsonar.organization=remie030101
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
