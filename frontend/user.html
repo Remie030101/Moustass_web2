@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moustass - Espace Utilisateur</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Barre de navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <img src="images/logo.png" alt="Moustass Logo" class="h-8 mr-2">
+                    <h1 class="text-xl font-bold">Moustass</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="avatarBtn" class="flex items-center space-x-2">
+                        <img src="https://ui-avatars.com/api/?name=User" alt="Avatar" class="w-8 h-8 rounded-full">
+                        <span class="text-gray-700">Mon compte</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu déroulant -->
+    <div id="dropdownMenu" class="hidden absolute right-4 mt-2 w-48 bg-white rounded-md shadow-lg py-1">
+        <a href="#" id="changePassword" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Changer le mot de passe</a>
+        <a href="#" id="upgradePremium" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Passer Premium</a>
+        <a href="#" id="logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Déconnexion</a>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <!-- Section d'enregistrement -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-bold mb-4">Enregistrer un message vocal</h2>
+            <div class="flex items-center space-x-4">
+                <button id="startBtn" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
+                    Démarrer l'enregistrement
+                </button>
+                <span id="timer" class="text-gray-600">00:00</span>
+            </div>
+            <div class="mt-4">
+                <input type="text" id="encryptionCode" placeholder="Code de chiffrement" 
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md mb-2">
+                <p class="text-sm text-gray-500 mb-4">Ce code sera nécessaire pour déchiffrer le message. Partagez-le de manière sécurisée.</p>
+                <audio id="audioPlayer" controls class="w-full"></audio>
+            </div>
+            <div class="mt-4">
+                <input type="text" id="decryptKey" placeholder="Code de déchiffrement" 
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                <button id="playBtn" disabled
+                    class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                    Lire le message
+                </button>
+            </div>
+        </div>
+
+        <!-- Liste des messages -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-bold mb-4">Mes messages</h2>
+            <div id="messagesList" class="space-y-4">
+                <!-- Les messages seront ajoutés ici dynamiquement -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de changement de mot de passe -->
+    <div id="passwordModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-md w-96">
+            <h2 class="text-xl font-bold mb-4">Changer le mot de passe</h2>
+            <form id="passwordForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Nouveau mot de passe</label>
+                    <input type="password" id="newPassword" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <p class="mt-1 text-xs text-gray-500">
+                        Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.
+                    </p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Confirmer le mot de passe</label>
+                    <input type="password" id="confirmNewPassword" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <div class="flex space-x-4">
+                    <button type="submit"
+                        class="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Changer
+                    </button>
+                    <button type="button" id="closePassword"
+                        class="flex-1 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                        Annuler
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal d'abonnement Premium -->
+    <div id="premiumModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-md w-96">
+            <h2 class="text-xl font-bold mb-4">Passer Premium</h2>
+            <div class="space-y-4">
+                <p class="text-gray-600">Bénéficiez de fonctionnalités supplémentaires :</p>
+                <ul class="list-disc list-inside text-gray-600">
+                    <li>Enregistrement illimité</li>
+                    <li>Stockage étendu</li>
+                    <li>Messages prioritaires</li>
+                </ul>
+                <div class="flex space-x-4">
+                    <button id="stripePayment"
+                        class="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Payer avec Stripe
+                    </button>
+                    <button id="closePremium"
+                        class="flex-1 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                        Annuler
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de partage de message -->
+    <div id="shareModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-md w-96">
+            <h2 class="text-xl font-bold mb-4">Partager le message</h2>
+            <div class="space-y-4">
+                <p class="text-gray-600">Sélectionnez les utilisateurs avec qui partager ce message :</p>
+                <div id="usersList" class="max-h-48 overflow-y-auto space-y-2">
+                    <!-- La liste des utilisateurs sera ajoutée ici dynamiquement -->
+                </div>
+                <div class="flex space-x-4">
+                    <button id="confirmShare"
+                        class="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Partager
+                    </button>
+                    <button id="closeShare"
+                        class="flex-1 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                        Annuler
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section des messages partagés -->
+    <div class="bg-white rounded-lg shadow-md p-6 mt-6">
+        <h2 class="text-xl font-bold mb-4">Messages partagés avec moi</h2>
+        <div id="sharedMessagesList" class="space-y-4">
+            <!-- Les messages partagés seront ajoutés ici dynamiquement -->
+        </div>
+    </div>
+
+    <script src="js/user.js"></script>
+</body>
+</html> 
