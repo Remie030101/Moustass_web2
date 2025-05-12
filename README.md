@@ -26,7 +26,7 @@ Moustass est une application web permettant l'enregistrement, le chiffrement et 
 - Gestion des utilisateurs par l'administrateur
 - Abonnement premium avec paiement Stripe
 - Réinitialisation de mot de passe par email
-- Interface web moderne (frontend React)
+- Interface web moderne (frontend Vanilla)
 - API REST sécurisée (backend Node.js)
 - Configuration serveur Apache avec SSL, cache, et headers de sécurité
 
