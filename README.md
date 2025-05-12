@@ -1,89 +1,146 @@
 # Moustass - Application de Messages Vocaux Sécurisés
 
-Application web permettant l'enregistrement, le chiffrement et le partage de messages vocaux de manière sécurisée.
+Moustass est une application web permettant l'enregistrement, le chiffrement et le partage de messages vocaux de manière sécurisée. Elle propose une gestion avancée des utilisateurs, un abonnement premium avec paiement Stripe, et une configuration serveur optimisée avec Apache.
+
+---
+
+## Sommaire
+
+- [Fonctionnalités](#fonctionnalités)
+- [Stack Technique](#stack-technique)
+- [Prérequis](#prérequis)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Démarrage](#démarrage)
+- [Sécurité](#sécurité)
+- [Structure du projet](#structure-du-projet)
+- [Tests et Benchmark](#tests-et-benchmark)
+- [Contribution](#contribution)
+- [Licence](#licence)
+
+---
 
 ## Fonctionnalités
 
 - Authentification des utilisateurs (utilisateur/admin)
-- Enregistrement de messages vocaux
+- Enregistrement et partage de messages vocaux
 - Chiffrement AES-256 des messages
-- Partage de messages entre utilisateurs
 - Gestion des utilisateurs par l'administrateur
 - Abonnement premium avec paiement Stripe
+- Réinitialisation de mot de passe par email
+- Interface web moderne (frontend React)
+- API REST sécurisée (backend Node.js)
+- Configuration serveur Apache avec SSL, cache, et headers de sécurité
+
+---
+
+## Stack Technique
+
+- **Frontend** : React.js
+- **Backend** : Node.js (Express)
+- **Base de données** : MySQL
+- **Paiement** : Stripe
+- **Serveur web** : Apache 2.4+ (avec SSL, cache, headers de sécurité)
+- **Email** : SMTP
+
+---
 
 ## Prérequis
 
 - Node.js (v14 ou supérieur)
 - MySQL (v8 ou supérieur)
+- Apache 2.4+ avec modules : mod_ssl, mod_rewrite, mod_headers, mod_expires, mod_deflate, mod_cache, mod_cache_disk
 - Compte Stripe pour les paiements
-- Compte email pour l'envoi des emails de réinitialisation
+- Compte email SMTP pour l'envoi des emails
+
+---
 
 ## Installation
 
-1. Cloner le repository :
-```bash
-git clone [URL_DU_REPO]
-cd moustass
-```
+1. **Cloner le repository :**
+   ```bash
+   git clone [URL_DU_REPO]
+   cd moustass
+   ```
 
-2. Installer les dépendances du backend :
-```bash
-cd backend
-npm install
-```
+2. **Installer les dépendances du backend :**
+   ```bash
+   cd backend
+   npm install
+   ```
 
-3. Installer les dépendances du frontend :
-```bash
-cd ../frontend
-npm install
-```
+3. **Installer les dépendances du frontend :**
+   ```bash
+   cd ../frontend
+   npm install
+   ```
 
-4. Configurer les variables d'environnement :
-- Copier le fichier `.env.example` en `.env` dans le dossier backend
-- Remplir les variables d'environnement avec vos propres valeurs
+4. **Configurer les variables d'environnement :**
+   - Copier `.env.example` en `.env` dans le dossier backend
+   - Remplir les variables d'environnement avec vos propres valeurs
 
-5. Créer la base de données :
-```bash
-mysql -u root -p < db/schema.sql
-```
+5. **Créer la base de données :**
+   ```bash
+   mysql -u root -p < db/init.sql
+   ```
 
-## Démarrage
+6. **Configurer Apache :**
+   - Copier `apache.conf` et `ssl.conf` dans le dossier de configuration d'Apache (ex: `/usr/local/apache2/conf/`)
+   - Placer votre certificat SSL (`server.crt`) et clé privée (`server.key`) dans le dossier `conf`
+   - S'assurer que tous les modules requis sont activés
+   - Redémarrer Apache
 
-1. Démarrer le backend :
-```bash
-cd backend
-npm run dev
-```
-
-2. Démarrer le frontend :
-```bash
-cd frontend
-npm run dev
-```
-
-L'application sera accessible à l'adresse http://localhost:5173
+---
 
 ## Configuration
 
 ### Base de données
-- Créer une base de données MySQL
-- Configurer les variables DB_* dans le fichier .env
+- Créer une base MySQL
+- Configurer les variables `DB_*` dans le fichier `.env` du backend
 
 ### Email
 - Configurer un compte SMTP pour l'envoi d'emails
-- Remplir les variables SMTP_* dans le fichier .env
+- Remplir les variables `SMTP_*` dans le fichier `.env`
 
 ### Stripe
 - Créer un compte Stripe
-- Obtenir les clés API dans le dashboard Stripe
-- Configurer les variables STRIPE_* dans le fichier .env
+- Récupérer les clés API dans le dashboard Stripe
+- Configurer les variables `STRIPE_*` dans le fichier `.env`
+
+### Apache
+- Les fichiers de configuration (`apache.conf`, `ssl.conf`) incluent :
+  - Redirection HTTP vers HTTPS
+  - Activation du SSL/TLS
+  - Headers de sécurité (HSTS, X-Frame-Options, etc.)
+  - Cache navigateur et disque
+  - Logs d'accès et d'erreur
+
+---
+
+## Démarrage
+
+1. **Démarrer le backend :**
+   ```bash
+   cd backend
+   npm run dev
+   ```
+
+
+2. **Accéder à l'application :**
+   - Frontend : http://localhost:80 (via Apache)
+   - API backend : http://localhost:3000 (par défaut)
+
+---
 
 ## Sécurité
 
-- Les mots de passe sont hashés avec bcrypt
-- Les messages vocaux sont chiffrés avec AES-256
-- L'authentification utilise JWT
-- Les routes sensibles sont protégées par des middlewares
+- Mots de passe hashés avec bcrypt
+- Messages vocaux chiffrés avec AES-256
+- Authentification JWT
+- Routes sensibles protégées par des middlewares
+- Headers de sécurité et SSL/TLS via Apache
+
+---
 
 ## Structure du projet
 
@@ -101,9 +158,27 @@ moustass/
 │   ├── src/
 │   ├── public/
 │   └── package.json
-└── db/
-    └── schema.sql
+├── db/
+│   └── init.sql
+├── apache.conf
+├── ssl.conf
+└── README.md
 ```
+
+---
+
+## Tests et Benchmark
+
+- Pour exécuter les tests de charge avec Apache Benchmark :
+  ```bash
+  ./scripts/load-test-ab.sh
+  ```
+- Vérifier le KeepAlive :
+  ```bash
+  curl -v http://localhost
+  ```
+
+---
 
 ## Contribution
 
@@ -112,6 +187,8 @@ moustass/
 3. Commiter vos changements
 4. Pousser vers la branche
 5. Ouvrir une Pull Request
+
+---
 
 ## Licence
 

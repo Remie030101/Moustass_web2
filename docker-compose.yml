@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mysql:
     image: mysql:8
@@ -7,11 +5,14 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: moustass
-      MYSQL_USER: 
+      MYSQL_USER: ''
       MYSQL_PASSWORD: ''
       MYSQL_ALLOW_EMPTY_PASSWORD : yes
     ports:
       - "3306:3306"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
     networks:
       - backend-net
 
@@ -31,6 +32,27 @@ services:
       DB_NAME: moustass
     networks:
       - backend-net
+
+  frontend:
+    image: httpd:2.4
+    container_name: frontend-container
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./frontend:/usr/local/apache2/htdocs
+      - ./apache.conf:/usr/local/apache2/conf/httpd.conf
+      - ./ssl.conf:/usr/local/apache2/conf/ssl.conf
+      - ./ssl/server.crt:/usr/local/apache2/conf/server.crt
+      - ./ssl/server.key:/usr/local/apache2/conf/server.key
+      - ./frontend/logs:/usr/local/apache2/logs
+      - ./frontend/cache:/usr/local/apache2/cache
+    depends_on:
+      - backend
+    networks:
+      - backend-net
+
+  
 
 networks:
   backend-net:
