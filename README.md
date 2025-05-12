@@ -15,8 +15,6 @@ Moustass est une application web permettant l'enregistrement, le chiffrement et 
 - [Sécurité](#sécurité)
 - [Structure du projet](#structure-du-projet)
 - [Tests et Benchmark](#tests-et-benchmark)
-- [Contribution](#contribution)
-- [Licence](#licence)
 
 ---
 
@@ -36,7 +34,7 @@ Moustass est une application web permettant l'enregistrement, le chiffrement et 
 
 ## Stack Technique
 
-- **Frontend** : React.js
+- **Frontend** : Vanilla js
 - **Backend** : Node.js (Express)
 - **Base de données** : MySQL
 - **Paiement** : Stripe
@@ -136,7 +134,6 @@ Moustass est une application web permettant l'enregistrement, le chiffrement et 
 
 - Mots de passe hashés avec bcrypt
 - Messages vocaux chiffrés avec AES-256
-- Authentification JWT
 - Routes sensibles protégées par des middlewares
 - Headers de sécurité et SSL/TLS via Apache
 
@@ -180,16 +177,4 @@ moustass/
 
 ---
 
-## Contribution
 
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité
-3. Commiter vos changements
-4. Pousser vers la branche
-5. Ouvrir une Pull Request
-
----
-
-## Licence
-
-MIT
