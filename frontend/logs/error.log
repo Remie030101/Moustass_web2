@@ -1,0 +1,97 @@
+[Mon May 12 05:20:54.430572 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:20:54.431849 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:20:54.434526 2025] [ssl:warn] [pid 1:tid 1] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Mon May 12 05:20:54.436167 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:20:54.437470 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:20:54.439295 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) OpenSSL/3.0.15 configured -- resuming normal operations
+[Mon May 12 05:20:54.439388 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Mon May 12 05:20:54.439434 2025] [unixd:alert] [pid 8:tid 8] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:20:54.439459 2025] [unixd:alert] [pid 10:tid 10] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:20:54.439552 2025] [unixd:alert] [pid 9:tid 9] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:24:32.963171 2025] [unixd:alert] [pid 98:tid 98] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:32:24.205038 2025] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Mon May 12 05:32:28.024694 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:32:28.027038 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:32:28.030001 2025] [ssl:warn] [pid 1:tid 1] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Mon May 12 05:32:28.030935 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:32:28.032109 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:32:28.035084 2025] [unixd:alert] [pid 7:tid 7] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:32:28.035305 2025] [unixd:alert] [pid 9:tid 9] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:32:28.035088 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) OpenSSL/3.0.15 configured -- resuming normal operations
+[Mon May 12 05:32:28.035812 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Mon May 12 05:32:28.035217 2025] [unixd:alert] [pid 8:tid 8] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:33:27.550961 2025] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Mon May 12 05:33:50.115236 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:33:50.121925 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:33:50.127290 2025] [ssl:warn] [pid 1:tid 1] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Mon May 12 05:33:50.128830 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:33:50.131827 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:33:50.134473 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) OpenSSL/3.0.15 configured -- resuming normal operations
+[Mon May 12 05:33:50.134777 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Mon May 12 05:33:50.134676 2025] [unixd:alert] [pid 9:tid 9] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:33:50.134802 2025] [unixd:alert] [pid 10:tid 10] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:33:50.134899 2025] [unixd:alert] [pid 8:tid 8] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:38:16.797222 2025] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Mon May 12 05:47:41.256907 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:47:41.259249 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:47:41.262950 2025] [ssl:warn] [pid 1:tid 1] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Mon May 12 05:47:41.263759 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:47:41.264932 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:47:41.267345 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) OpenSSL/3.0.15 configured -- resuming normal operations
+[Mon May 12 05:47:41.267403 2025] [unixd:alert] [pid 7:tid 7] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:47:41.267559 2025] [unixd:alert] [pid 8:tid 8] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:47:41.267465 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Mon May 12 05:47:41.267473 2025] [unixd:alert] [pid 9:tid 9] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:48:53.388163 2025] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Mon May 12 05:48:57.397282 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:48:57.401390 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:48:57.406248 2025] [ssl:warn] [pid 1:tid 1] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Mon May 12 05:48:57.408368 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:48:57.409877 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 05:48:57.411836 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) OpenSSL/3.0.15 configured -- resuming normal operations
+[Mon May 12 05:48:57.412035 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Mon May 12 05:48:57.412186 2025] [unixd:alert] [pid 8:tid 8] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:48:57.412187 2025] [unixd:alert] [pid 10:tid 10] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:48:57.412208 2025] [unixd:alert] [pid 9:tid 9] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 05:50:37.687664 2025] [unixd:alert] [pid 92:tid 92] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:08:22.094004 2025] [unixd:alert] [pid 120:tid 120] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:08:23.095310 2025] [unixd:alert] [pid 149:tid 149] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:08:23.095729 2025] [unixd:alert] [pid 148:tid 148] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:17:17.679435 2025] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Mon May 12 06:19:13.239966 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:19:13.242136 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:19:13.243836 2025] [ssl:warn] [pid 1:tid 1] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Mon May 12 06:19:13.244523 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:19:13.245444 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:19:13.248254 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) OpenSSL/3.0.15 configured -- resuming normal operations
+[Mon May 12 06:19:13.248334 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Mon May 12 06:19:13.248347 2025] [unixd:alert] [pid 8:tid 8] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:19:13.248353 2025] [unixd:alert] [pid 9:tid 9] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:19:13.248357 2025] [unixd:alert] [pid 10:tid 10] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:26:56.055718 2025] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Mon May 12 06:26:59.824715 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:26:59.828004 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:26:59.829998 2025] [mpm_event:warn] [pid 1:tid 1] AH00516: MaxRequestWorkers of 1000 would require 40 servers and exceed ServerLimit of 16, decreasing to 400
+[Mon May 12 06:26:59.830580 2025] [ssl:warn] [pid 1:tid 1] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Mon May 12 06:26:59.831423 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:26:59.832857 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:26:59.834771 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) OpenSSL/3.0.15 configured -- resuming normal operations
+[Mon May 12 06:26:59.834856 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Mon May 12 06:26:59.834906 2025] [unixd:alert] [pid 8:tid 8] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:26:59.835012 2025] [unixd:alert] [pid 9:tid 9] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:26:59.835145 2025] [unixd:alert] [pid 10:tid 10] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:28:48.124290 2025] [unixd:alert] [pid 92:tid 92] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:28:49.123437 2025] [unixd:alert] [pid 120:tid 120] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:28:49.123507 2025] [unixd:alert] [pid 121:tid 121] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:41:12.106494 2025] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Mon May 12 06:42:13.390301 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:42:13.391930 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:42:13.393251 2025] [mpm_event:warn] [pid 1:tid 1] AH00516: MaxRequestWorkers of 1000 would require 40 servers and exceed ServerLimit of 16, decreasing to 400
+[Mon May 12 06:42:13.393680 2025] [ssl:warn] [pid 1:tid 1] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Mon May 12 06:42:13.394337 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:42:13.395549 2025] [ssl:warn] [pid 1:tid 1] AH01906: localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon May 12 06:42:13.397546 2025] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.63 (Unix) OpenSSL/3.0.15 configured -- resuming normal operations
+[Mon May 12 06:42:13.397556 2025] [unixd:alert] [pid 8:tid 8] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:42:13.397570 2025] [unixd:alert] [pid 9:tid 9] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
+[Mon May 12 06:42:13.397622 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Mon May 12 06:42:13.397667 2025] [unixd:alert] [pid 10:tid 10] AH02155: getpwuid: couldn't determine user name from uid 4294967295, you probably need to modify the User directive
