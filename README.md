@@ -67,24 +67,19 @@ Moustass est une application web permettant l'enregistrement, le chiffrement et 
    npm install
    ```
 
-3. **Installer les dépendances du frontend :**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
 
-4. **Configurer les variables d'environnement :**
+3. **Configurer les variables d'environnement :**
    - Copier `.env.example` en `.env` dans le dossier backend
    - Remplir les variables d'environnement avec vos propres valeurs
 
-5. **Créer la base de données :**
+4. **Créer la base de données :**
    ```bash
    mysql -u root -p < db/init.sql
    ```
 
-6. **Configurer Apache :**
+5. **Configurer Apache :**
    - Copier `apache.conf` et `ssl.conf` dans le dossier de configuration d'Apache (ex: `/usr/local/apache2/conf/`)
-   - Placer votre certificat SSL (`server.crt`) et clé privée (`server.key`) dans le dossier `conf`
+   - Placer le certificat SSL (`server.crt`) et clé privée (`server.key`) dans le dossier `conf`
    - S'assurer que tous les modules requis sont activés
    - Redémarrer Apache
 
@@ -96,14 +91,6 @@ Moustass est une application web permettant l'enregistrement, le chiffrement et 
 - Créer une base MySQL
 - Configurer les variables `DB_*` dans le fichier `.env` du backend
 
-### Email
-- Configurer un compte SMTP pour l'envoi d'emails
-- Remplir les variables `SMTP_*` dans le fichier `.env`
-
-### Stripe
-- Créer un compte Stripe
-- Récupérer les clés API dans le dashboard Stripe
-- Configurer les variables `STRIPE_*` dans le fichier `.env`
 
 ### Apache
 - Les fichiers de configuration (`apache.conf`, `ssl.conf`) incluent :
